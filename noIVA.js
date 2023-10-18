@@ -1,9 +1,9 @@
 function noIVA (number)
 {
 
-    let withoutIVA = number - (number * .21);
+    let withoutIVA = number / 1.21;
 
     return withoutIVA;
 }
 
-console.log(noIVA(5.00));
+console.log(noIVA(121));

@@ -1,38 +1,26 @@
-function isPunct(char)
+// Pseudo Latin
+
+// Create a function which takes a string as an argument and 
+// moves the first letter of each word to the end of it, then adds "ay"
+// to the end of the word. Leave punctuation marks untouched.
+
+var sentence = "This is my first program using objects and arrays";
+var manipulated = sentence.split(" ");
+var allpunct = ['.', ',', '\'', '!', '?'];
+
+function latinize(parsed)
 {
-    var onlyPunctuation = "/^(?:[!-#%-,-/:;@-_";
-    for (let r= 0; r < onlyPunctuation.length(); r++)
+    for (let r = 0; r < parsed.length; r++)
     {
-        if(onlyPunctuation[r] == char)
-            return true
+        let data = Array.from(parsed[r]);
+        data.push(data.shift().toLowerCase());
+        data = data.join("");
+        data += "ay";
+        parsed[r] = data;
+
     }
-    return false;
+
+    return parsed;
 }
 
-
-function myfunc(sentence)
-{
-
-    let myArray = sentence.split(" ");
-    let finalstr = "";
-
-    for (let i = 0; i < myArray.length; i++)
-    {
-        let reformmated = "" 
-        let theword = myArray[i] /*String */
-
-        if (theword.length >= 2);
-        {
-            reformmated = theword; /*redeclare variable*/
-            reformmated = theword.slice(1); /*first index is taken off*/
-            reformmated = reformmated + theword[0] + "ay";
-
-        }
-
-        finalstr = finalstr + reformmated + " ";
-    }
-    
-    return finalstr;
-}
-
-console.log(myfunc("This is actually a sentence!"));
+console.log(latinize(manipulated).join(" "));
